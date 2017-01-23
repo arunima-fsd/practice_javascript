@@ -130,7 +130,9 @@ var AnotherPetConstFunction = mickey.constructor;
 var shiro = new AnotherPetConstFunction("Shiro", "Dog", "Labrador", "Bhooooooooo", true);
 shiro.sayHello();
 
-
+// IMPORTANT: Objects maintain the link to the function that created them
+var arr = [];
+console.log(arr.constructor.toString());
 
 console.log("****************THE THIS KEYWORD*************************");
 
