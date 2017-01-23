@@ -51,17 +51,34 @@ tonight();
 
 
 
+console.log("****************CLOSURE AND EXECUTION CONTEXT*************************");
+
+var saga = [];
+var hero = "Shah Rukh Khan"
+var newSaga = function () {
+    var number = Math.floor(Math.random() * 20);
+    saga.push(function () {
+        var someNumber = Math.floor(Math.random() * 100);
+        console.log(hero.toString() + " " + number.toString() + " " + someNumber.toString());
+
+    });
+
+};
+
+newSaga();
+saga[0]();
+saga[0]();
+saga[0]();
+
+newSaga();
+saga[0]();
+saga[1]();
+saga[0]();
+
+
+console.log("*******************************************************");
 
 
 
 
 
-//ANONYMOUS Function
-
-var add = function (a , b) {
-    return a + b;
-
-}
-
-
-console.log(add(2, 3));
