@@ -96,6 +96,42 @@ var oneMoreAnonFunctionObject = myName(function () {
                                         });
 oneMoreAnonFunctionObject();
 
+
+console.log("***********CONSTRUCTOR FUNCTION***************");
+
+function Pet(name, species, breed, hello, isMammal){
+    this.name = name;
+    this.species = species;
+    this.breed = breed;
+    this.hello = hello;
+    this.isMammal = isMammal;
+    this.sayHello = function () {
+        console.log(this.hello);
+
+    }
+    this.showMammalness = function () {
+        if(this.isMammal){
+            console.log("Mammal");
+        }
+        else{
+            console.log("Not mammal");
+        }
+
+    }
+
+}
+
+var mickey = new Pet("Mickey", "Dog", "American Eskimo", "Bho bho", true);
+mickey.sayHello();
+mickey.showMammalness();
+//console.log(mickey.constructor.toString());
+
+var AnotherPetConstFunction = mickey.constructor;
+var shiro = new AnotherPetConstFunction("Shiro", "Dog", "Labrador", "Bhooooooooo", true);
+shiro.sayHello();
+
+
+
 console.log("****************THE THIS KEYWORD*************************");
 
 
