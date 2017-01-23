@@ -51,7 +51,7 @@ tonight();
 
 
 
-console.log("****************CLOSURE AND EXECUTION CONTEXT*************************");
+console.log("****************CLOSURE AND EXECUTION CONTEXT***********");
 
 var saga = [];
 var hero = "Shah Rukh Khan"
@@ -76,9 +76,45 @@ saga[1]();
 saga[0]();
 
 
-console.log("*******************************************************");
+console.log("***********ANONYMOUS FUNCTION***************");
 
 
+//Created with a function operator
+
+function myName(oneAnonFunctionObject){
 
 
+    oneAnonFunctionObject();
+    //console.log( typeof oneAnonFunctionObject.name);
+    return function () {
+        console.log("I am another Anon function which is being returned");
+    }
+}
 
+var oneMoreAnonFunctionObject = myName(function () {
+                                      console.log("I am one anon function which is passed as parameter.");
+                                        });
+oneMoreAnonFunctionObject();
+
+console.log("****************THE THIS KEYWORD*************************");
+
+
+var person = {
+    firstName: "Arunima",
+    lastName: "Srivastava",
+    fullName: function () {
+        //Notice we use "this" just as we used "he" in the example sentence earlier:
+        console.log(this.firstName + " " + this.lastName );
+
+    },
+    showAge: function () {
+        console.log(this.age);
+    }
+};
+
+var me = person;
+me.age = 25;
+me.fullName();
+me.showAge();
+
+console.log(this);
