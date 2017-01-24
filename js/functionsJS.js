@@ -134,25 +134,3 @@ shiro.sayHello();
 var arr = [];
 console.log(arr.constructor.toString());
 
-console.log("****************THE THIS KEYWORD*************************");
-
-
-var person = {
-    firstName: "Arunima",
-    lastName: "Srivastava",
-    fullName: function () {
-        //Notice we use "this" just as we used "he" in the example sentence earlier:
-        console.log(this.firstName + " " + this.lastName );
-
-    },
-    showAge: function () {
-        console.log(this.age);
-    }
-};
-
-var me = person;
-me.age = 25;
-me.fullName();
-me.showAge();
-
-console.log(this);
