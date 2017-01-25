@@ -6,13 +6,13 @@ var me_object = {
 
 };
 
-$(".name").append(me_object.name);
+//$(".name").append(me_object.name);
 
-$(".skills").prepend(me_object.skills);
+//$(".skills").prepend(me_object.skills);
 
 
 //substituting default values 
-$(".main").append((me_object.job) || ("finding destiny"));
+//$(".main").append((me_object.job) || ("finding destiny"));
 
 var temp = me_object.name.concat(" creates awesomeness!!!");
 
@@ -35,6 +35,11 @@ function Account ()
 // This is the use of the Account constructor to create the userAccount object.â€‹
 var userAccount = new Account (); 
 
+
+
+
+
+
 /*  Moreover, all objects that inherit from another object also 
    inherit a constructor property. And this constructor property 
    is simply a property (like any variable) that holds or points 
@@ -42,8 +47,11 @@ var userAccount = new Account ();
 
 //The constructor in this example is Object ()
 var myObj = new Object ();
+
 // And if you later want to find the myObj constructor:
 console.log(myObj.constructor); // Object()
+
+
 
 // Another example: Account () is the constructor
 var userAccount = new Account (); 
@@ -97,14 +105,23 @@ Dog.prototype.isMammal = function(){
 	}
 
 }
+/* WRONG WAY of inheritance.
+* CORRECT WAY Dog.prototype = Object.create(Animal.prototype);
+* Wrong method will giva the same effect but in that process
+* calls the constructor function Animal, which is highly
+* undesirable. */
 
 Dog.prototype = new Animal();
+
+
 
 var my_pug = new Dog("Pug");
 
 console.log(my_pug.showNameandAge());
 console.log(my_pug.breed);
 console.log(my_pug.canFly);
+
+
 
 //All about prototypes
 
@@ -129,7 +146,7 @@ function celebrityName( firstName) {
 
 var mJname = celebrityName("Barack");
 
-console.log(mJname);
+console.log(mJname("Obama"));
 
 
 //ANONYMOUS FUNCTION
