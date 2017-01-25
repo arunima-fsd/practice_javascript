@@ -125,23 +125,54 @@ console.log("************PSEUDOCLASSICAL Pattern *****************");
 
 
 
-function Dog(name, age, breed) {
+function Dog(name, age) {
     //this = Object.create(Dog.prototype);
     //the above line is automatically inserted by the intepreter when
     //the instance is made with new keyword.
-    this.name = name;
+    this.name = name.valueOf();
     this.age = age;
-    this.breed = breed;
     //return this.
 }
 
 Dog.prototype.sayHello = function () {
-                                    console.log(this.name + " the "+ this.breed+", says woof woof!!!");
+                                    console.log(this.name +"  says woof woof!!!");
                                         };
 
-var guddu = new Dog("Guddu", 2, "Pug");
-guddu.sayHello();
 
+function Pug(name, age, height, description) {
+    Dog.call(this, name, age);
+    this.height = height;
+    this.description = description;
+}
+
+
+
+//WRONG PRACTICE
+//Pug.prototype = new Dog();
+
+
+//Correct way
+Pug.prototype = Object.create(Dog.prototype);
+
+var guddu = new Pug("guddu", 3 ,"8 inches", "Sweet and friendly");
+
+
+//Notice how the constructor is referring to Dog at this point
+//because along with the other methods in the prototype the constructor
+//property of Dog is also got copied in Pug's prototype.
+console.log(guddu.constructor);
+
+//Fix the above issue
+Pug.prototype.constructor = Pug;
+
+
+//Add Speciality
+Pug.prototype.showMe = function () {
+        console.log("I am awesome and I know it!!! ");
+}
+
+
+console.log(guddu.constructor);
 
 
 
