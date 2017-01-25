@@ -134,3 +134,5 @@ shiro.sayHello();
 var arr = [];
 console.log(arr.constructor.toString());
 
+
+
